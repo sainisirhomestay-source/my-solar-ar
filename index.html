@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Solar System AR</title>
+    <!-- Google Model Viewer की लाइब्रेरी (लॉगिन की जरूरत नहीं) -->
+    <script type="module" src="https://googleapis.com"></script>
+    <style>
+        body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; background: #000; }
+        model-viewer { width: 100%; height: 100%; }
+        /* स्क्रीन पर एक बटन दिखेगा आयरन मैन की तरह AR एक्टिवेट करने के लिए */
+        #ar-button {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background-color: #00bfff; color: white; border: none; padding: 12px 24px;
+            font-size: 16px; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 191, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- src में मैंने सीधे नासा/गूगल के सर्वर से एस्ट्रोनॉट का मॉडल जोड़ा है ताकि आपको डाउनलोड न करना पड़े -->
+    <!-- जब आप अपना सोलर सिस्टम अपलोड करेंगे तो src में उसकी जगह बदल सकते हैं -->
+    <model-viewer 
+        src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+        ar 
+        ar-modes="webxr scene-viewer quick-look" 
+        camera-controls 
+        auto-rotate 
+        shadow-intensity="1">
+        
+        <button slot="ar-button" id="ar-button">
+            अपने कमरे में देखें (Activate AR)
+        </button>
+        
+    </model-viewer>
+
+</body>
+</html>
